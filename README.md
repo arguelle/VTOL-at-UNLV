@@ -19,7 +19,7 @@ Who do we approve?
 ### Crowd funding campaign
 * Make marketing material
 
-## Required Skills
+## Subsystems?
 
 ### CAD - 3D printing and design
 Many custom parts need to be manufactured for this project.
@@ -40,3 +40,7 @@ May require workshops to give students hands-on experience.
 
 ### Composites manufacturing
 Fiberglass and carbon fiber to build the prototypes.
+
+### Project Maintenance
+Manage Github collaboration and deployment.
+This project will be made open for anybody in the public to pull from.
