@@ -50,18 +50,18 @@ a rear motor, and tilt servos. This buildlog does go over it however Heewing has
 
 
 ### Wiring
-* The following chart is the configuration we used on our flight controller.
+* The following chart is the configuration we used on our flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
 
 
 | Port | Connection       |
 |-----:|------------------|
-|    M1|Front Left Motor  |
-|    M2|Front Right Motor |
-|    M3|Rear Motor        |
-|    M5|Elevator          |
-|    M6|Attatched Ailerons|
-|    M7|Left Tilt Servo   |
-|    M8|Right Tilt Servo  |
+| Main1|Front Left Motor  |
+| Main2|Front Right Motor |
+| Main3|Rear Motor        |
+| Main5|Elevator          |
+| Main6|Attatched Ailerons|
+| Main7|Left Tilt Servo   |
+| Main8|Right Tilt Servo  |
 | UARTX|Telemetry         |
 | UARTX|Reciever          |
 |   I2C|GPS               |
@@ -75,12 +75,40 @@ telemetry, from the RC to the Reciever, and connecting M5 - M8 to a PDB.
 
 
 * The Heewing kit came with a BEC which came attatched to two quick release busses that power the Motors. This BEC is has also been soldered onto in order to power our
-flight controller, pdb, and rear ESC/motor.
+flight controller, pdb, rear ESC/motor, and VTX.
 
-![IMG_5532](https://user-images.githubusercontent.com/117425577/219991391-b7b10dbd-c117-4c81-9a4f-17a2dfb4e197.jpg)
+![Wiring2](https://user-images.githubusercontent.com/117425577/220202423-3d94a367-2aad-4e95-af08-018184116720.jpg)
+
 
 
 ## PX4 Configuration
+* Once PX4 has been flashed onto your flight controller you are now able to modify the parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website
+## Actuator Outputs
+1. Within the "Actuator Outputs" plane we are able to assign which actuator corresponds to which output on our flight controller. If you refer back to our wiring assignment you will notice that we have M1 to front left motor or Motor 1, M2 to front right motor or Motor 2, M3 to rear motor or Motor 3 and so on and so forth. 
+2. Assigning the PWM Minimum, and Maximum values will limit the range at which the actuators will rotate from a minimum of 800 to a maximum of 2200. It is important to have the value apropriately set to avoid your motor from tilting to far and your propellar accidentally eating into the plane.
+3. Setting the disarmed values will dictate what position your motor will be at when disarmed.
+### Geometry
+#### MC Motors
+1. Starting from the geometry section of the actuators menu, declare how many motors you have. You can modify the number of motors you want by using the "MC Motors" drop down menu.
+2. Your X position indicates how far forward or backward the motor is from the center of gravity, forward being positive backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, left being negative and right being positive.
+3. In addition, you must declare which motor is being tilted by whcich servo. This can be modified by the drop down menu following the X and Y position.
+4. Changing the direction CCW will change the direction the motor spins. By default it will spin counter clock wise around PX4FMU's Z axis or Yaw axis
+
+#### Control Surfaces
+* Our VTOL uses two control surfaces which include a single channel aileron and an elevator. 
+1. Following that, the number of control surfaces can be modified by using the drop down menu labeled "Control Surfaces".
+2. If you look to the "Actuator Outputs" section you can see how the servos correspond to the flight controllers outputs.
+
+#### Tilt Servos
+1. You can alter the number of tilt servos by using the "Tilt Servos" drop down.
+2. By setting your angle at min and max tilt values you are defining the angles at which the max and min PWM values correspond to.
+
+
+
+The image below shows how our VTOL's actuators are configured.
+[here](https://docs.px4.io/main/en/config/actuators.html)
+![Screenshot from 2023-02-19 18-05-30](https://user-images.githubusercontent.com/117425577/220202844-6ce2e315-b2d4-4f6a-8df6-d99593dc5b05.png)
+
 
 ## Tuning
 
