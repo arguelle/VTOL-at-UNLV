@@ -82,7 +82,7 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 
 ## PX4 Configuration
-* Once PX4 has been flashed onto your flight controller you are now able to modify the parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website
+* Once PX4 has been flashed onto your flight controller you are now able to modify the parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website [here](https://docs.px4.io/main/en/config/actuators.html)
 ## Actuator Outputs
 1. Within the "Actuator Outputs" plane we are able to assign which actuator corresponds to which output on our flight controller. If you refer back to our wiring assignment you will notice that we have M1 to front left motor or Motor 1, M2 to front right motor or Motor 2, M3 to rear motor or Motor 3 and so on and so forth. 
 2. Assigning the PWM Minimum, and Maximum values will limit the range at which the actuators will rotate from a minimum of 800 to a maximum of 2200. It is important to have the value apropriately set to avoid your motor from tilting to far and your propellar accidentally eating into the plane.
@@ -101,12 +101,16 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 #### Tilt Servos
 1. You can alter the number of tilt servos by using the "Tilt Servos" drop down.
-2. By setting your angle at min and max tilt values you are defining the angles at which the max and min PWM values correspond to.
+2. By setting your angle at min and max tilt values you are defining the angles at which the max and min PWM values correspond to, 90 being straight forward and -90 being backward.
+   * It is important to set this because you must assign the percentages where the VTOL is in multicopter mode and transition mode which uses the max tilt  and min tilt angle as the full range.
+
+The image below shows how our VTOL's tilt parameters are assigned. When the VTOL is in multicopter mode the value is set to 135% which corresponds to being completely vertical. During transition mode it is only set to 80% due to the fact that we still require vertical thrust until it fully transitions.
+
+![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 
 
 
 The image below shows how our VTOL's actuators are configured.
-[here](https://docs.px4.io/main/en/config/actuators.html)
 ![Screenshot from 2023-02-19 18-05-30](https://user-images.githubusercontent.com/117425577/220202844-6ce2e315-b2d4-4f6a-8df6-d99593dc5b05.png)
 
 
