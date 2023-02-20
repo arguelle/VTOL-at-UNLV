@@ -26,6 +26,8 @@ build log goes over all of the materials we are using in our current build which
 * FRSky Archer RS reciever
 * MRO Telemetry
 * MRO GPS
+* Pico Blade Connectors
+* JSTGH Connectors
 ### Tools needed
 The following tools were used in this assembly
 * Soldering iron
@@ -51,32 +53,32 @@ a rear motor, and tilt servos. This buildlog does go over it however Heewing has
 * The following chart is the configuration we used on our flight controller.
 
 
-| Port | Connection      |
-|-----:|-----------------|
-|    M1|Front Left Motor |
-|    M2|Front Right Motor|
-|    M3|Rear Motor       |
-|    M5|                 |
-|    M6|                 |
-|    M7|                 |
-|    M8|                 |
-| UARTX|Telemetry        |
-| UARTX|Reciever         |
-|   I2C|GPS              |
+| Port | Connection       |
+|-----:|------------------|
+|    M1|Front Left Motor  |
+|    M2|Front Right Motor |
+|    M3|Rear Motor        |
+|    M5|Elevator          |
+|    M6|Attatched Ailerons|
+|    M7|Left Tilt Servo   |
+|    M8|Right Tilt Servo  |
+| UARTX|Telemetry         |
+| UARTX|Reciever          |
+|   I2C|GPS               |
 
-* When wiring our PDB we have the PWM ports in the following configuration
-
-
-| Port | Connection      |
-|-----:|-----------------|
-|    S1|Attatched R/L Ailerons|
-|    S2|Elevator|
-|    S3|Left Tilt Servo|
-|    S4|Right Tilt Servo|
-|    5V|Power Telemetry|
+* The image below shows a suitable configuration for wiring. From the Flight controller there are wires going from the I2C into the GPS, from UART 1 to the 
+telemetry, from the RC to the Reciever, and connecting M5 - M8 to a PDB.
+![IMG_5527](https://user-images.githubusercontent.com/117425577/219988439-aa2120e9-12dd-4a75-89a7-9e9a51257035.jpg)
 
 
-* The Heewing kit came with a BEC which we soldered onto in order to power our PDB and our Flight controller
+
+
+
+* The Heewing kit came with a BEC which came attatched to two quick release busses that power the Motors. This BEC is has also been soldered onto in order to power our
+flight controller, pdb, and rear ESC/motor.
+
+![IMG_5532](https://user-images.githubusercontent.com/117425577/219991391-b7b10dbd-c117-4c81-9a4f-17a2dfb4e197.jpg)
+
 
 ## PX4 Configuration
 
