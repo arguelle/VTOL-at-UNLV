@@ -47,6 +47,8 @@ a rear motor, and tilt servos. This buildlog does go over it however Heewing has
 6. Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally you can solder the wires directly to the ESC).
 7. Solder bullet connectors onto the ESC for the rear motor.
 8. Slide the tail boom onto the fueselauge of the plane and secure using the red nut.
+9. In order to secure the VTX onto the VTOL there is a compartment on the top front of the Ranger, however, to fit the Walksnail Avatar cutting is required. Additionaly, we modeled a new hatch to be placed over top once the VTX is secured. Using an X-ACTO blade carefully cut away foam so that the VTX fits snugly keeping in mind that the new 3d printed hatch must maintain a friction hold as well.
+10. The VTX antennas must remain unincumbered to sustain strong communication with the VRX. In order to accomplish this we burnt a small hole through the front of the fuesalauge. Using a hot iron cut holes into the front of the fuselauge at an angle going downward.
 
 
 ### Wiring
@@ -92,10 +94,10 @@ flight controller, pdb, rear ESC/motor, and VTX.
 1. Starting from the geometry section of the actuators menu, declare how many motors you have. You can modify the number of motors you want by using the "MC Motors" drop down menu.
 2. Your X position indicates how far forward or backward the motor is from the center of gravity, forward being positive backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, left being negative and right being positive.
 3. In addition, you must declare which motor is being tilted by whcich servo. This can be modified by the drop down menu following the X and Y position.
-4. Changing the direction CCW will change the direction the motor spins. By default it will spin counter clock wise around PX4FMU's Z axis or Yaw axis
+4. Changing the direction CCW will change the direction the motor spins. By default it will spin counter clock wise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)
 
 #### Control Surfaces
-* Our VTOL uses two control surfaces which include a single channel aileron and an elevator. 
+* Our VTOL uses two control surfaces which include a single channel aileron and an elevator. We are using a single chanel aileron due to the limited number of signal output chanels on the Kakute H7 mini flight controler.
 1. Following that, the number of control surfaces can be modified by using the drop down menu labeled "Control Surfaces".
 2. If you look to the "Actuator Outputs" section you can see how the servos correspond to the flight controllers outputs.
 
@@ -104,7 +106,7 @@ flight controller, pdb, rear ESC/motor, and VTX.
 2. By setting your angle at min and max tilt values you are defining the angles at which the max and min PWM values correspond to, 90 being straight forward and -90 being backward.
    * It is important to set this because you must assign the percentages where the VTOL is in multicopter mode and transition mode which uses the max tilt  and min tilt angle as the full range.
 
-The image below shows how our VTOL's tilt parameters are assigned. When the VTOL is in multicopter mode the value is set to 135% which corresponds to being completely vertical. During transition mode it is only set to 80% due to the fact that we still require vertical thrust until it fully transitions.
+The image below shows how our VTOL's tilt parameters are assigned. When the VTOL is in multicopter mode the value is set to 13.5% which corresponds to being completely vertical. During transition mode it is only set to 80% due to the fact that we still require vertical thrust until it fully transitions. DISCLAIMER, subject to tuning.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 
