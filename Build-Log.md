@@ -122,6 +122,3 @@ The image below shows how our VTOL's actuators are configured.
 ![Screenshot from 2023-02-19 18-05-30](https://user-images.githubusercontent.com/117425577/220202844-6ce2e315-b2d4-4f6a-8df6-d99593dc5b05.png)
 
 
-## Tuning
-
-## Acknowledgements
