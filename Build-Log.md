@@ -22,8 +22,8 @@ build log goes over all of the materials we are using in our current build which
 * [Lumenier Razor Pro 45A ESC](https://www.getfpv.com/lumenier-razor-pro-f3-blheli-32-45a-2-6s-esc.html?utm_source=google&utm_medium=cpc&utm_campaign=DM+-+NB+-+PMax+-+Shop+-+SM+-+ALL&utm_content=pmax_x&utm_keyword=&utm_matchtype=&campaign_id=19697845436&network=x&device=c&gclid=EAIaIQobChMIj73bk4Sg_QIVeQytBh3PZQetEAQYASABEgL_YvD_BwE)
 * [Kakute H7 mini Flight Controller](https://shop.holybro.com/kakute-h7-mini_p1308.html)
 * Walksnail Avatar mini VTX
-* [Mateksys PDB](https://www.getfpv.com/mateksys-servo-pdb-w-bec-5-5-36v-to-5-8-2v-svpdb-8s.html)
-* FRSky Archer RS reciever
+* [Mateksys Power Distribution Board](https://www.getfpv.com/mateksys-servo-pdb-w-bec-5-5-36v-to-5-8-2v-svpdb-8s.html)
+* [FRSky Archer RS reciever](https://www.frsky-rc.com/product/archer-rs/)
 * MRO Telemetry
 * MRO GPS
 * Pico Blade Connectors
@@ -31,24 +31,26 @@ build log goes over all of the materials we are using in our current build which
 ### Tools needed
 The following tools were used in this assembly
 * Soldering iron
-* Wire crimpers
+* X-ACTO blade
 * Size 1 screwdriver
-* Alan wrench
 
 ## Assembly
 1. Start by assembling the Heewing T01 Ranger
    * Out of box the plane does have some assembly required including installing the tail, wings, and screwing in adapter plates.
 The [assembly guide](https://cdn.shopifycdn.net/s/files/1/0553/6573/0348/files/T1_PNP_Assembly_Guide.pdf?v=1640164559) released by Heewing
-should be used to get throught the initial setup of the plane. Additionally, the VTOL conversion kit would require installing new higher powered motors,
-a rear motor, and tilt servos. This buildlog does go over it however Heewing has released instructional videos on how to accomplish this.
-2. Remove both motors and motor mounts and desolder the existing ESCs to replace with your new ESCs.
-3. Solder the new motors onto the new ESCs and install the tilt servos.
-5. Slide rear motor mount through carbon tail boom and push the motor wires through the hole on the lower end of the pipe.
-6. Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally you can solder the wires directly to the ESC).
-7. Solder bullet connectors onto the ESC for the rear motor.
-8. Slide the tail boom onto the fueselauge of the plane and secure using the red nut.
-9. In order to secure the VTX onto the VTOL there is a compartment on the top front of the Ranger, however, to fit the Walksnail Avatar cutting is required. Additionaly, we modeled a new hatch to be placed over top once the VTX is secured. Using an X-ACTO blade carefully cut away foam so that the VTX fits snugly keeping in mind that the new 3d printed hatch must maintain a friction hold as well.
-10. The VTX antennas must remain unincumbered to sustain strong communication with the VRX. In order to accomplish this we burnt a small hole through the front of the fuesalauge. Using a hot iron cut holes into the front of the fuselauge at an angle going downward.
+should be used to get throught the initial setup of the plane. 
+2. Continue by applying the VTOL modifications. VTOL conversion kit would require installing new higher powered motors, a rear motor, and tilt servos. This buildlog does go over it however Heewing has released (instructional videos)[https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit] on how to accomplish this.
+   * Remove both motors and motor mounts and desolder the existing ESCs to replace with your new ESCs.
+   * Solder the new motors onto the new ESCs and install the tilt servos.
+   * Slide rear motor mount through carbon tail boom and push the motor wires through the hole on the lower end of the pipe.
+   * Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally you can solder the wires directly to the ESC).
+   * Solder bullet connectors onto the ESC for the rear motor.
+   * Slide the tail boom onto the fueselauge of the plane and secure using the red nut.
+3. Mount VTX onto the top front hatch of the fuselage.
+   * Carefully cut away foam from the front hatch of the plane using the VTX as a guide. Once enough foam has been removed the VTX should fit snuggly into the hole. Be sure to leave room for the power and ground wires
+   * Using a hot iron poke two holes into the side of the fuselage angled downward for the VTX antennas to come out of.
+![VTXmount](https://user-images.githubusercontent.com/117425577/222985812-e896cd83-3c27-4f68-8841-20a62a0c18d6.jpg)
+
 
 
 ### Wiring
