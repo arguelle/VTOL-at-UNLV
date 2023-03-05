@@ -100,7 +100,7 @@ flight controller, pdb, rear ESC/motor, and VTX.
 1. Starting from the geometry section of the actuators menu, declare how many motors you have. You can modify the number of motors you want by using the "MC Motors" drop-down menu.
 2. Your X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
 3. In addition, you must declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
-4. Changing the direction CCW will change the direction the motor spins. By default, it will spin counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)
+4. Changing the direction CCW will indicate in what direction your motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)
 
 #### Control Surfaces
 * Our VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of signal output channels on the Kakute H7 mini flight controller.
