@@ -49,10 +49,14 @@ should be used to get throught the initial setup of the plane.
 3. Mount VTX onto the top front hatch of the fuselage.
    * Carefully cut away foam from the front hatch of the plane using the VTX as a guide. Once enough foam has been removed the VTX should fit snuggly into the hole. Be sure to leave room for the power and ground wires
    * Using a hot iron poke two holes into the side of the fuselage angled downward for the VTX antennas to come out of.
-![VTXmount](https://user-images.githubusercontent.com/117425577/222985812-e896cd83-3c27-4f68-8841-20a62a0c18d6.jpg)
+![VTXmount](https://user-images.githubusercontent.com/117425577/222986304-8e28166f-7c83-4067-a0f2-11b368eb17f9.jpg)
 
-
-
+4. Mount GPS using 3DPrinted parts. In our design we decided to mount the GPS to the interior of the plane because it presented a cleaner solution than having it mounted onto the exterior.
+   * 3D print GPS stands.
+   * Melt through the top of the GPS standsso that screws can fit through.
+   * Secure the 3D Printed GPS standsto the wooden rails inside the fuselage. 
+   * Screw on the GPS to the stands.
+   
 ### Wiring
 * The following chart is the configuration we used on our flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
 
