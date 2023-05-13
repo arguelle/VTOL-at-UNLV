@@ -1,8 +1,8 @@
 # Heewing T01 Ranger VTOL (Kakute H7 mini) Build Log
-The Heewing T01 Ranger is a twin-motor RC plane that comes as a plug-and-play kit out of the box. The following document 
-goes over the additional steps required to convert the standard plane into a fully functioning VTOL.
+The Heewing T01 Ranger is a twin-motor RC plane that comes as a plug-and-play kit. The following document 
+explains the additional steps required to convert the standard plane into a fully functioning VTOL.
 ## Key information
-The Heewing VTOL kit does come with all of the required materials needed to have a sufficient VTOL (minus a flight controller and receiver), however, this
+The VTOL conversion kit does come with all of the required materials needed to have a sufficient VTOL (minus a flight controller and receiver), however, this
 build log goes over all of the materials we are using in our current build which includes alternative motors and ESCs.
 
 
@@ -32,7 +32,7 @@ build log goes over all of the materials we are using in our current build which
 The following tools were used in this assembly
 * Soldering iron
 * X-ACTO blade
-* Size 1 screwdriver
+* Screwdriver Set
 
 ## Assembly
 1. Start by assembling the Heewing T01 Ranger
@@ -43,19 +43,9 @@ should be used to get through the initial setup of the plane.
    * Remove both motors and motor mounts and desolder the existing ESCs to replace them with your new ESCs.
    * Solder the new motors onto the new ESCs and install the tilt servos.
    * Slide the rear motor mount through the carbon fiber tail boom and push the motor wires through the hole on the lower end of the pipe.
-   * Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally you can solder the wires directly to the ESC).
+   * Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally, you can solder the wires directly to the ESC).
    * Solder bullet connectors onto the ESC for the rear motor.
-   * Slide the tail boom onto the fuselage of the plane and secure using the red nut.
-3. Mount VTX onto the top front hatch of the fuselage.
-   * Carefully cut away foam from the front hatch of the plane using the VTX as a guide. Once enough foam has been removed the VTX should fit snuggly into the hole. Be sure to leave room for the power and ground wires
-   * Using a hot iron poke two holes into the side of the fuselage angled downward for the VTX antennas to come out of.
-![VTXmount](https://user-images.githubusercontent.com/117425577/222986304-8e28166f-7c83-4067-a0f2-11b368eb17f9.jpg)
-
-4. Mount GPS using 3DPrinted parts. In our design, we decided to mount the GPS to the interior of the plane because it presented a cleaner solution than having it mounted onto the exterior.
-   * 3D print GPS stands.
-   * Melt through the top of the GPS stands so that screws can fit through.
-   * Secure the 3D Printed GPS stands to the wooden rails inside the fuselage. 
-   * Screw on the GPS to the stands.
+   * Slide the tail boom onto the fuselage and secure using the red nut.
    
 ### Wiring
 * The following chart is the configuration we used on our flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
@@ -82,7 +72,7 @@ telemetry, from the RC to the receiver, and connecting M5 - M8 to a PDB.
 
 
 
-* The Heewing kit came with a BEC which came attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power our
+* The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power our
 flight controller, pdb, rear ESC/motor, and VTX.
 
 ![Wiring2](https://user-images.githubusercontent.com/117425577/220202423-3d94a367-2aad-4e95-af08-018184116720.jpg)
@@ -90,10 +80,10 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 
 ## PX4 Configuration
-* Once PX4 has been flashed onto your flight controller you are now able to modify the parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website [here](https://docs.px4.io/main/en/config/actuators.html)
+* Once PX4 has been flashed onto your flight controller you can then modify parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website [here](https://docs.px4.io/main/en/config/actuators.html)
 ## Actuator Outputs
-1. Within the "Actuator Outputs" plane we can assign which actuator corresponds to which output on our flight controller. If you refer back to our wiring assignment you will notice that we have M1 to the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
-2. Assigning the PWM Minimum, and Maximum values will limit the range at which the actuators will rotate from a minimum of 800 to a maximum of 2200. It is important to have the value appropriately set to avoid your motor from tilting too far and your propeller accidentally eating into the plane.
+1. Within the "Actuator Outputs" plane we can assign which actuator corresponds to which output on our flight controller. If you refer back to our wiring assignment you will see that we have M1 paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
+2. Assigning the PWM Minimum, and Maximum values will limit the range at which the actuators will rotate from a minimum of 800 to a maximum of 2200. It is important to have the value appropriately set to avoid your motor from tilting too far and your propeller eating into the foam.
 3. Setting the disarmed values will dictate what position your motor will be at when disarmed.
 ### Geometry
 #### MC Motors
@@ -120,7 +110,6 @@ The image below shows how our VTOL's tilt parameters are assigned. When the VTOL
 
 The image below shows how our VTOL actuators are configured.
 ![Screenshot from 2023-02-19 18-05-30](https://user-images.githubusercontent.com/117425577/220202844-6ce2e315-b2d4-4f6a-8df6-d99593dc5b05.png)
-
 
 
 
