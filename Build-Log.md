@@ -76,12 +76,16 @@ flight controller, pdb, rear ESC/motor, and VTX.
 #### Control Surfaces
    * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of output channels on the flight controller.
 1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
-2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.
+2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.  
+
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
 
 #### PWM
 1. Set the PWM maximum value to correspond to the angle at which the blade barely misses the foam wing.
 2. Set the minimum value to correspond to the angle directly forward of the plane.
-3. Set the disarm value so that when disarmed the motor is facing straignt up.
+3. Set the disarm value so that when disarmed the motor is facing straignt up.  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
+
 #### Tilt Servos
 1. Set the number of tilt servos to two.
 2. Set the angle at minimum tilt to the angle corresponding to the minimum PWM value.
@@ -98,9 +102,6 @@ The image below shows how an example VTOL's tilt parameter assignment. When the 
 
 
 
-The image below shows how our VTOL actuators are configured.     
-![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
-![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
 
 
 
