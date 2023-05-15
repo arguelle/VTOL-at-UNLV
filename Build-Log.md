@@ -99,7 +99,7 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 #### Tilt Servos
 1. You can alter the number of tilt servos by using the "Tilt Servos" drop-down.
-2. By setting the angle at min and max tilt values you are defining the usable range of your tilt motor, 90 being forward and -90 being backward.  
+2. By setting the angle at min and max tilt values you are defining the usable range of your tilt motor, 90 being forward, 0 being straight up, and -90 being backward.  
    * In order to keep our propeller blades from eating into the foam we had to limit the minimum tilt angle to -17.  
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
