@@ -108,8 +108,15 @@ The image below shows how our VTOL's tilt parameters are assigned. When the VTOL
 
 
 
-The image below shows how our VTOL actuators are configured.
-![Screenshot from 2023-02-19 18-05-30](https://user-images.githubusercontent.com/117425577/220202844-6ce2e315-b2d4-4f6a-8df6-d99593dc5b05.png)
+The image below shows how our VTOL actuators are configured.  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
+
+
+
+
 
 
 
