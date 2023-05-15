@@ -1,22 +1,12 @@
 # Heewing T01 Ranger VTOL (Kakute H7 mini) Build Log
 The Heewing T01 Ranger is a twin-motor RC plane that comes as a plug-and-play kit. The following document 
 explains the additional steps required to convert the standard plane into a fully functioning VTOL.
-## Key information
-The VTOL conversion kit does come with all of the required materials needed to have a sufficient VTOL (minus a flight controller and receiver), however, this
-build log goes over all of the materials we are using in our current build which includes alternative motors and ESCs.
-
 
 ## Bill of materials
 
 ### Kit Hardware
 * [Heewing T01 Ranger](https://www.heewing.com/products/heewing-ranger-t-1-fpv-airplane-730mm-wingspan-epp-with-flight-controller-pnp-pro)
-	- EPP Foam body, wings, and tail
-	- Carbon Fiber spar
 * [Heewing T01 Ranger VTOL Conversion Kit](https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit)
-  - Tilt Servos and Mounts
-  - Tail Boom
-  - Rear Motor Mount
-  - Propellers
 ### Electronics
 * [3 x 2203 1500 KV Motor](https://stanfpv.com/products/stan-fpv-2203-1500kv-pro-motor)
 * [Lumenier Razor Pro 45A ESC](https://www.getfpv.com/lumenier-razor-pro-f3-blheli-32-45a-2-6s-esc.html?utm_source=google&utm_medium=cpc&utm_campaign=DM+-+NB+-+PMax+-+Shop+-+SM+-+ALL&utm_content=pmax_x&utm_keyword=&utm_matchtype=&campaign_id=19697845436&network=x&device=c&gclid=EAIaIQobChMIj73bk4Sg_QIVeQytBh3PZQetEAQYASABEgL_YvD_BwE)
@@ -26,8 +16,6 @@ build log goes over all of the materials we are using in our current build which
 * [FRSky Archer RS receiver](https://www.frsky-rc.com/product/archer-rs/)
 * MRO Telemetry
 * MRO GPS
-* Pico Blade Connectors
-* JSTGH Connectors
 ### Tools needed
 The following tools were used in this assembly
 * Soldering iron
@@ -39,16 +27,10 @@ The following tools were used in this assembly
    * Out of the box the plane does have some assembly required including installing the tail, wings, and screwing in adapter plates.
 The [assembly guide](https://cdn.shopifycdn.net/s/files/1/0553/6573/0348/files/T1_PNP_Assembly_Guide.pdf?v=1640164559) released by Heewing
 should be used to get through the initial setup of the plane. 
-2. Continue by applying the VTOL modifications. VTOL conversion kit would require installing new higher-powered motors, a rear motor, and tilt servos. This build log does go over it however Heewing has released (instructional videos)[https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit] on how to accomplish this.
-   * Remove both motors and motor mounts and desolder the existing ESCs to replace them with your new ESCs.
-   * Solder the new motors onto the new ESCs and install the tilt servos.
-   * Slide the rear motor mount through the carbon fiber tail boom and push the motor wires through the hole on the lower end of the pipe.
-   * Solder bullet connectors onto the rear motor wires poking through the end of the tail boom (optionally, you can solder the wires directly to the ESC).
-   * Solder bullet connectors onto the ESC for the rear motor.
-   * Slide the tail boom onto the fuselage and secure using the red nut.
+2. Continue by applying the VTOL modifications. The VTOL conversion would require installing new higher-powered motors, a rear motor, and tilt servos. Heewing has released (instructional videos)[https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit] on how to accomplish this.
    
 ### Wiring
-* The following chart is the configuration we used on our flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
+* The following chart shows the pinout assignments of the flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
 
 
 | Port | Connection       |
@@ -72,7 +54,7 @@ telemetry, from the RC to the receiver, and connecting M5 - M8 to a PDB.
 
 
 
-* The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power our
+* The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power the
 flight controller, pdb, rear ESC/motor, and VTX.
 
 ![Wiring2](https://user-images.githubusercontent.com/117425577/220202423-3d94a367-2aad-4e95-af08-018184116720.jpg)
@@ -80,34 +62,37 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 
 ## PX4 Configuration
-* Once PX4 has been flashed onto your flight controller you can then modify parameters. This section will go over what parameters have been modified on this build and why. You can find more information on these parameters on the PX4 website [here](https://docs.px4.io/main/en/config/actuators.html)
+* This section will go over what parameters have been modified on this build and why. More information is available [here](https://docs.px4.io/main/en/config/actuators.html)
 ## Actuator Outputs
-1. Within the "Actuator Outputs" plane we can assign which actuator corresponds to which output on our flight controller. If you refer back to our wiring assignment you will see that we have M1 paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
-2. Assigning the PWM Minimum, and Maximum values will limit the range at which the actuators will rotate from a minimum of 800 to a maximum of 2200. It is important to have the value appropriately set to avoid your motor from tilting too far and your propeller eating into the foam.
-3. Setting the disarmed values will dictate what position your motor will be at when disarmed.
+1. Within the "Actuator Outputs" plane assign which actuator corresponds to which output on the flight controller. Refering back to the wiring assignment shows that M1 is paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
 ### Geometry
 #### MC Motors
-1. Starting from the geometry section of the actuators menu, declare how many motors you have. You can modify the number of motors you want by using the "MC Motors" drop-down menu.
-2. Your X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
-3. In addition, you must declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
-4. Changing the direction CCW will indicate in what direction your motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
+1. Starting from the geometry section of the actuators menu, set the value to 3.
+2. The X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
+3. Declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
+4. Changing the direction CCW will indicate in what direction the motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
 #### Control Surfaces
-   * Our VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of signal channel outputs on our flight controller.
+   * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of output channels on the flight controller.
 1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
 2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.
 
+#### PWM
+1. Set the PWM maximum value to correspond to the angle at which the blade barely misses the foam wing.
+2. Set the minimum value to correspond to the angle directly forward of the plane.
+3. Set the disarm value so that when disarmed the motor is facing straignt up.
 #### Tilt Servos
-1. You can alter the number of tilt servos by using the "Tilt Servos" drop-down.
-2. By setting the angle at min and max tilt values you are defining the usable range of your tilt motor, 90 being forward, 0 being straight up, and -90 being backward.  
-   * In order to keep our propeller blades from eating into the foam we had to limit the minimum tilt angle to -17.  
+1. Set the number of tilt servos to two.
+2. Set the angle at minimum tilt to the angle corresponding to the minimum PWM value.
+3. Set the angle at maximum tilt to the angle corresponding to the maximum PWM value. 
+   * By setting the angle at min and max tilt values you are defining the usable PWM range of the tilt motor in degrees, 90 being forward, 0 being straight up, and -90 being backward.  
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
-![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/5a75dc19-8c6c-44c8-92d4-8f747d54bd44)
+![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/a685d131-4c25-42d9-a990-29ffcfba1133)
 
 
-The image below shows how our VTOL's tilt parameters are assigned. When the VTOL is in multi-copter mode the value is set to 0.135 which corresponds to being completely vertical. During transition mode, it is only set to 8 because we still require vertical thrust until it fully transitions. DISCLAIMER, subject to tuning.
+The image below shows how an example VTOL's tilt parameter assignment. When the VTOL is in multi-copter mode the value is set to 0.135 which corresponds to being completely vertical. During transition mode, it is only set to 0.800 because vertical thrust is required unless in fixed-wing mode. DISCLAIMER, subject to tuning.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 
