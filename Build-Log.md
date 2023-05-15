@@ -90,11 +90,12 @@ flight controller, pdb, rear ESC/motor, and VTX.
 1. Starting from the geometry section of the actuators menu, declare how many motors you have. You can modify the number of motors you want by using the "MC Motors" drop-down menu.
 2. Your X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
 3. In addition, you must declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
-4. Changing the direction CCW will indicate in what direction your motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)
+4. Changing the direction CCW will indicate in what direction your motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
+![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
 #### Control Surfaces
-* Our VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of signal output channels on the Kakute H7 mini flight controller.
-1. Following that, the number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
+   * Our VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of signal channel outputs on our flight controller.
+1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
 2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.
 
 #### Tilt Servos
@@ -106,8 +107,6 @@ flight controller, pdb, rear ESC/motor, and VTX.
 ![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/5a75dc19-8c6c-44c8-92d4-8f747d54bd44)
 
 
-   * It is important to set this because you must assign the percentages where the VTOL is in multi-copter mode and transition mode which uses the max tilt and min tilt angle as the full range.
-
 The image below shows how our VTOL's tilt parameters are assigned. When the VTOL is in multi-copter mode the value is set to 0.135 which corresponds to being completely vertical. During transition mode, it is only set to 8 because we still require vertical thrust until it fully transitions. DISCLAIMER, subject to tuning.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
@@ -117,7 +116,6 @@ The image below shows how our VTOL's tilt parameters are assigned. When the VTOL
 The image below shows how our VTOL actuators are configured.     
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
-![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
 
 
