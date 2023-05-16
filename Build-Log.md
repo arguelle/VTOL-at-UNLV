@@ -38,10 +38,10 @@ should be used to get through the initial setup of the plane.
 | Main1|Front Left Motor  |
 | Main2|Front Right Motor |
 | Main3|Rear Motor        |
-| Main5|Elevator          |
-| Main6|Attatched Ailerons|
+| Main5|Attatched Ailerons|
+| Main6|Right Tilt Servo  |
 | Main7|Left Tilt Servo   |
-| Main8|Right Tilt Servo  |
+| Main8|Elevator          |
 | UARTX|Telemetry         |
 | UARTX|Reciever          |
 |   I2C|GPS               |
