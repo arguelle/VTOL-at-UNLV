@@ -87,17 +87,17 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 ### Tilt Servos
 1. Set the number of tilt servos to two.
-2. Set the angle at minimum tilt to the angle corresponding to the minimum PWM value.
-3. Set the angle at maximum tilt to the angle corresponding to the maximum PWM value. 
-   * By setting the angle at min and max tilt values you are defining the usable PWM range of the tilt motor in degrees, 90 being forward, 0 being straight up, and -90 being backward.  
-   * The example below's full range of motion is 107°.
+2. Using a protractor, measure the angle of the tilt servo when PWM is at its minimum value. Enter the obtained angle into the "Angle at minimum tilt" parameter takiong into account that 0° in the PX4 coordinate system is straight up.
+3. Do the same for the PWM's maximum value and enter the obtained angle into the "Angle at maximum tilt" parameter.
+   * Setting the angle at min and max tilt values you defines the usable PWM range of the tilt motor in degrees, 90 being forward, 0 being straight up, and -90 being backward.  
+   * The example below shows what the tilt parameter's full range of motion would look like against a Heewing tilt servo. In the example the full range of mottion has a total of 107° of freedom.
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
 ![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/a685d131-4c25-42d9-a990-29ffcfba1133)
 
 
 ### Transition and MC Mode Angles
-Before flying, the tilt servo's position during MC Mode and Transition Mode must be declared.
+Before flying, the tilt servo positions during MC Mode and Transition Mode must be declared.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 1. To declare the motor's position during MC Mode, assign the VT_TILT_MC parameter. The input value should be a percentage of the tilt servo's full range starting from the angle at minimum tilt.
