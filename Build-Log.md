@@ -47,7 +47,8 @@ should be used to get through the initial setup of the plane.
 |   I2C|GPS               |
 
 * The image below shows a suitable configuration for wiring. From the flight controller, there are wires going from the I2C into the GPS, from UART 1 to the 
-telemetry, from the RC to the receiver, and connecting M5 - M8 to a PDB.
+telemetry, from the RC to the receiver, and from M5 - M8 to a PDB.
+* The PDB's outputs are connected to the signal, power, and ground wire of each motor.
 ![IMG_5527](https://user-images.githubusercontent.com/117425577/219988439-aa2120e9-12dd-4a75-89a7-9e9a51257035.jpg)
 
 
@@ -87,13 +88,14 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 ### Tilt Servos
 1. Set the number of tilt servos to two.
-2. Using a protractor, measure the angle of the tilt servo when PWM is at its minimum value. Enter the obtained angle into the "Angle at minimum tilt" parameter takiong into account that 0° in the PX4 coordinate system is straight up.
+2. Using a protractor, measure the angle of the tilt servo when PWM is at its minimum value. Enter the obtained angle into the "Angle at minimum tilt" parameter taking into account that 0° in the PX4 coordinate system is straight up.
 3. Do the same for the PWM's maximum value and enter the obtained angle into the "Angle at maximum tilt" parameter.
-   * Setting the angle at min and max tilt values you defines the usable PWM range of the tilt motor in degrees, 90 being forward, 0 being straight up, and -90 being backward.  
+   * Setting the angle at min and max tilt values you defines the usable PWM range of the tilt motor in degrees, 90° being forward, 0° being straight up, and -90° being backward.  
    * The example below shows what the tilt parameter's full range of motion would look like against a Heewing tilt servo. In the example the full range of mottion has a total of 107° of freedom.
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
-![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/a685d131-4c25-42d9-a990-29ffcfba1133)
+![rotationdiagram](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/704d713d-8f5d-4c8d-98a9-6ec37b909c78)
+
 
 
 ### Transition and MC Mode Angles
@@ -102,13 +104,15 @@ Before flying, the tilt servo positions during MC Mode and Transition Mode must 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 1. To declare the motor's position during MC Mode, assign the VT_TILT_MC parameter. The input value should be a percentage of the tilt servo's full range starting from the angle at minimum tilt.
 * The image below shows an example in which the angle of transition is at 13.5% of the tilt servo's full range of motion. Note that the angle corresponding to 13.5% is slightly less than 90°. This is to compensate for a center of gravity that is too far forward.
-![Screenshot 2023-05-16 141806](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/eb4610c9-bae7-446c-b3a3-8cb394fcd563)
+![MCMode](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/0419e594-8cf5-4a09-a096-555fb7534519)
+
 
 
 2. To declare the motor's position during transition, assign the VT_TILT_TRANS parameter. Similar to the VT_TILT_MC paramter, the input is a percentage of the tilt servo's full range starting from the angle at minimum tilt. 
 * The image below shows an example in which the angle of transition is at 80% of the tilt servo's full range of motion.
 
-![MCMode](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/97c083da-edd1-458e-b04a-a181d58ba79f)
+![Transition](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/055569fc-579f-4236-af71-844f979c4e0c)
+
 
 
 °
