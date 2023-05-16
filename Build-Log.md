@@ -99,7 +99,7 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 
 ### Transition and MC Mode Angles
-Before flying, the tilt servo positions during MC Mode and Transition Mode must be declared.
+* Before flying, the tilt servo positions during MC Mode and Transition Mode must be declared.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
 1. To declare the motor's position during MC Mode, assign the VT_TILT_MC parameter. The input value should be a percentage of the tilt servo's full range starting from the angle at minimum tilt.
