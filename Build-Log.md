@@ -65,42 +65,53 @@ flight controller, pdb, rear ESC/motor, and VTX.
 * This section will go over what parameters have been modified on this build and why. More information is available [here](https://docs.px4.io/main/en/config/actuators.html)
 ## Actuator Outputs
 1. Within the "Actuator Outputs" plane assign which actuator corresponds to which output on the flight controller. Refering back to the wiring assignment shows that M1 is paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
-### Geometry
-#### MC Motors
+### MC Motors
 1. Starting from the geometry section of the actuators menu, set the value to 3.
 2. The X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
 3. Declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
 4. Changing the direction CCW will indicate in what direction the motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
-#### Control Surfaces
+### Control Surfaces
    * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of output channels on the flight controller.
 1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
 2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.  
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
 
-#### PWM
+### PWM
 1. Set the PWM maximum value to correspond to the angle at which the blade barely misses the foam wing.
 2. Set the minimum value to correspond to the angle directly forward of the plane.
 3. Set the disarm value so that when disarmed the motor is facing straignt up.  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
 
-#### Tilt Servos
+### Tilt Servos
 1. Set the number of tilt servos to two.
 2. Set the angle at minimum tilt to the angle corresponding to the minimum PWM value.
 3. Set the angle at maximum tilt to the angle corresponding to the maximum PWM value. 
    * By setting the angle at min and max tilt values you are defining the usable PWM range of the tilt motor in degrees, 90 being forward, 0 being straight up, and -90 being backward.  
+   * The example below's full range of motion is 107°.
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
 ![TiltServ](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/a685d131-4c25-42d9-a990-29ffcfba1133)
 
 
-The image below shows how an example VTOL's tilt parameter assignment. When the VTOL is in multi-copter mode the value is set to 0.135 which corresponds to being completely vertical. During transition mode, it is only set to 0.800 because vertical thrust is required unless in fixed-wing mode. DISCLAIMER, subject to tuning.
+### Transition and MC Mode Angles
+Before flying, the tilt servo's position during MC Mode and Transition Mode must be declared.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
+1. To declare the motor's position during MC Mode, assign the VT_TILT_MC parameter. The input value should be a percentage of the tilt servo's full range starting from the angle at minimum tilt.
+* The image below shows an example in which the angle of transition is at 13.5% of the tilt servo's full range of motion. Note that the angle corresponding to 13.5% is slightly less than 90°. This is to compensate for a center of gravity that is too far forward.
+![Screenshot 2023-05-16 141806](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/eb4610c9-bae7-446c-b3a3-8cb394fcd563)
 
 
+2. To declare the motor's position during transition, assign the VT_TILT_TRANS parameter. Similar to the VT_TILT_MC paramter, the input is a percentage of the tilt servo's full range starting from the angle at minimum tilt. 
+* The image below shows an example in which the angle of transition is at 80% of the tilt servo's full range of motion.
+
+![MCMode](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/97c083da-edd1-458e-b04a-a181d58ba79f)
+
+
+°
 
 
 
