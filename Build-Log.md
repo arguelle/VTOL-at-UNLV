@@ -46,7 +46,7 @@ should be used to get through the initial setup of the plane.
 | UARTX|Reciever          |
 |   I2C|GPS               |
 
-* The image below shows a suitable configuration for wiring. From the flight controller, there are wires going from the I2C into the GPS, from UART 1 to the 
+* The image below shows a suitable configuration for wiring. From the flight controller, wires are going from the I2C into the GPS, from UART 1 to the 
 telemetry, from the RC to the receiver, and from M5 - M8 to a PDB.
 * The PDB's outputs are connected to the signal, power, and ground wire of each motor.
 ![IMG_5527](https://user-images.githubusercontent.com/117425577/219988439-aa2120e9-12dd-4a75-89a7-9e9a51257035.jpg)
@@ -56,7 +56,7 @@ telemetry, from the RC to the receiver, and from M5 - M8 to a PDB.
 
 
 * The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power the
-flight controller, pdb, rear ESC/motor, and VTX.
+flight controller, PDB, rear ESC/motor, and VTX.
 
 ![Wiring2](https://user-images.githubusercontent.com/117425577/220202423-3d94a367-2aad-4e95-af08-018184116720.jpg)
 
@@ -65,16 +65,16 @@ flight controller, pdb, rear ESC/motor, and VTX.
 ## PX4 Configuration
 * This section will go over what parameters have been modified on this build and why. More information is available [here](https://docs.px4.io/main/en/config/actuators.html)
 ## Actuator Outputs
-1. Within the "Actuator Outputs" plane assign which actuator corresponds to which output on the flight controller. Refering back to the wiring assignment shows that M1 is paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
+1. Within the "Actuator Outputs" plane assign which actuator corresponds to which output on the flight controller. Referring back to the wiring assignment shows that M1 is paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
 ### MC Motors
 1. Starting from the geometry section of the actuators menu, set the value to 3.
 2. The X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
 3. Declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
-4. Changing the direction CCW will indicate in what direction the motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
+4. Changing the direction of CCW will indicate in what direction the motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
 ### Control Surfaces
-   * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single channel aileron due to the limited number of output channels on the flight controller.
+   * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single-channel aileron due to the limited number of output channels on the flight controller.
 1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
 2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.  
 
@@ -83,15 +83,15 @@ flight controller, pdb, rear ESC/motor, and VTX.
 ### PWM
 1. Set the PWM minimum value to correspond to the angle at which the blade barely misses the foam wing.
 2. Set the maximum value to correspond to the angle directly forward of the plane.
-3. Set the disarm value so that when disarmed the motor is facing straignt up.  
+3. Set the disarm value so that when disarmed the motor is facing straight up.  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
 
 ### Tilt Servos
 1. Set the number of tilt servos to two.
 2. Using a protractor, measure the angle of the tilt servo when PWM is at its minimum value. Enter the obtained angle into the "Angle at minimum tilt" parameter taking into account that 0° in the PX4 coordinate system is straight up.
 3. Do the same for the PWM's maximum value and enter the obtained angle into the "Angle at maximum tilt" parameter.
-   * Setting the angle at min and max tilt values you defines the usable PWM range of the tilt motor in degrees, 90° being forward, 0° being straight up, and -90° being backward.  
-   * The example below shows what the tilt parameter's full range of motion would look like against a Heewing tilt servo. In the example the full range of mottion has a total of 107° of freedom.
+   * Setting the angle at min and max tilt values defines the usable PWM range of the tilt motor in degrees, 90° being forward, 0° being straight up, and -90° being backward.  
+   * The example below shows what the tilt parameter's full range of motion would look like against a Heewing tilt servo. In the example, the full range of motion has a total of 107° of freedom.
 
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/29d4ad1a-d3ca-4543-b36b-55729ed5380f)
 ![rotationdiagram](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/704d713d-8f5d-4c8d-98a9-6ec37b909c78)
@@ -108,14 +108,10 @@ flight controller, pdb, rear ESC/motor, and VTX.
 
 
 
-2. To declare the motor's position during transition, assign the VT_TILT_TRANS parameter. Similar to the VT_TILT_MC paramter, the input is a percentage of the tilt servo's full range starting from the angle at minimum tilt. 
+2. To declare the motor's position during the transition, assign the VT_TILT_TRANS parameter. Similar to the VT_TILT_MC parameter, the input is a percentage of the tilt servo's full range starting from the angle at minimum tilt. 
 * The image below shows an example in which the angle of transition is at 80% of the tilt servo's full range of motion.
 
 ![Transition](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/055569fc-579f-4236-af71-844f979c4e0c)
-
-
-
-°
 
 
 
