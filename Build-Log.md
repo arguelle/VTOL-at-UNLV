@@ -63,27 +63,27 @@ flight controller, PDB, rear ESC/motor, and VTX.
 
 ## PX4 Configuration
 * This section will go over what parameters have been modified on this build and why. More information is available [here](https://docs.px4.io/main/en/config/actuators.html)
-## Actuator Outputs
+### Actuator Outputs
 1. Within the "Actuator Outputs" plane assign which actuator corresponds to which output on the flight controller. Referring back to the wiring assignment shows that M1 is paired with the front left motor or Motor 1, M2 to the front right motor or Motor 2, M3 to the rear motor or Motor 3, and so on. 
-### MC Motors
+#### MC Motors
 1. Starting from the geometry section of the actuators menu, set the value to 3.
 2. The X position indicates how far forward or backward the motor is from the center of gravity, forward being positive and backward being negative. Conversely, the Y position indicates how far left or right the motor is in regards to the center of gravity, with left being negative and right being positive.
 3. Declare which motor is being tilted by which servo. This can be modified by the drop-down menu following the X and Y position.
 4. Changing the direction of CCW will indicate in what direction the motors are spinning. By default, it will indicate counterclockwise with respect to the FRD coordinate system around PX4FMU's Z axis or Yaw axis. For more information on the FRD coordinate system see the [PX4 Terminology page](https://docs.px4.io/main/en/contribute/notation.html)  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
-### Control Surfaces
+#### Control Surfaces
    * The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
 1. The VTOL uses two control surfaces which include a single-channel aileron and an elevator.
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
 
-### PWM
+#### PWM
 1. Set the PWM minimum value to correspond to the angle at which the blade barely misses the foam wing.
 2. Set the maximum value to correspond to the angle directly forward of the plane.
 3. Set the disarm value so that when disarmed the motor is facing straight up.  
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/993e17e6-e1ed-4c26-8d37-da0aa8139ffe)  
 
-### Tilt Servos
+#### Tilt Servos
 1. Set the number of tilt servos to two.
 2. Using a protractor, measure the angle of the tilt servo when PWM is at its minimum value. Enter the obtained angle into the "Angle at minimum tilt" parameter taking into account that 0° in the PX4 coordinate system is straight up.
 3. Do the same for the PWM's maximum value and enter the obtained angle into the "Angle at maximum tilt" parameter.
@@ -95,7 +95,7 @@ flight controller, PDB, rear ESC/motor, and VTX.
 
 
 
-### Transition and MC Mode Angles
+#### Transition and MC Mode Angles
 * Before flying, the tilt servo positions during MC Mode and Transition Mode must be declared.
 
 ![VTOLTILTANGLE](https://user-images.githubusercontent.com/117425577/220211260-bbadd5ad-7194-4f5b-94d3-57c7c9989fd9.png)
@@ -110,5 +110,5 @@ flight controller, PDB, rear ESC/motor, and VTX.
 
 ![Transition](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/055569fc-579f-4236-af71-844f979c4e0c)
 
-## Airspeed Sensor
+### Airspeed Sensor
 * The airspeed sensor has been disabled due to bugs in the latest version of PX4.
