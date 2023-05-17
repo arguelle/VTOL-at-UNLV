@@ -55,9 +55,10 @@ telemetry, from the RC to the receiver, and from M5 - M8 to a PDB.
 
 
 * The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power the
-flight controller, PDB, rear ESC/motor, and VTX.
+flight controller, PDB, rear ESC/motor, and VTX.  
 
-![Wiring2](https://user-images.githubusercontent.com/117425577/220202423-3d94a367-2aad-4e95-af08-018184116720.jpg)
+
+![PDBWiringDiagram](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/87c2025d-c730-4a0c-a8af-0ef349c18094)
 
 
 
