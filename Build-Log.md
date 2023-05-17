@@ -74,10 +74,8 @@ flight controller, PDB, rear ESC/motor, and VTX.
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/b9510f60-84d5-42b6-80e2-de7e818d7d62)  
 
 ### Control Surfaces
-   * The VTOL uses two control surfaces which include a single-channel aileron and an elevator. We are using a single-channel aileron due to the limited number of output channels on the flight controller.
-1. The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
-2. If you look at the "Actuator Outputs" section you can see how the servos correspond to the flight controller's outputs.  
-
+   * The number of control surfaces can be modified by using the drop-down menu labeled "Control Surfaces".
+1. The VTOL uses two control surfaces which include a single-channel aileron and an elevator.
 ![image](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/f7888395-c1ad-4173-8ca6-924d6846bb72)  
 
 ### PWM
