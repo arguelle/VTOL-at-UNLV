@@ -19,7 +19,6 @@ explains the additional steps required to convert the standard plane into a full
 ### Tools needed
 The following tools were used in this assembly
 * Soldering iron
-* X-ACTO blade
 * Screwdriver Set
 
 ## Assembly
