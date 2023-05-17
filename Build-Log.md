@@ -26,7 +26,7 @@ The following tools were used in this assembly
    * Out of the box the plane does have some assembly required including installing the tail, wings, and screwing in adapter plates.
 The [assembly guide](https://cdn.shopifycdn.net/s/files/1/0553/6573/0348/files/T1_PNP_Assembly_Guide.pdf?v=1640164559) released by Heewing
 should be used to get through the initial setup of the plane. 
-2. Continue by applying the VTOL modifications. The VTOL conversion would require installing new higher-powered motors, a rear motor, and tilt servos. Heewing has released [instructional videos][https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit] on how to accomplish this.
+2. Continue by applying the VTOL modifications. The VTOL conversion would require installing new higher-powered motors, a rear motor, and tilt servos. Heewing has released [instructional videos](https://www.heewing.com/products/hee-wing-t1-ranger-vtol-conversion-kit) on how to accomplish this.
    
 ### Wiring
 * The following chart shows the pinout assignments of the flight controller. Refer to the [pinout for the Kakute H7 mini](https://docs.holybro.com/fpv-flight-controller/kakute-h7-mini/pinout) for more details
