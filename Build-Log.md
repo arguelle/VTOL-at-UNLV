@@ -111,10 +111,5 @@ flight controller, PDB, rear ESC/motor, and VTX.
 
 ![Transition](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/055569fc-579f-4236-af71-844f979c4e0c)
 
-
-
-
-
-
-
-
+## Airspeed Sensor
+* The airspeed sensor has been disabled due to bugs in the latest version of PX4.
