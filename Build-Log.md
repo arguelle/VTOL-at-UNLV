@@ -47,11 +47,9 @@ should be used to get through the initial setup of the plane.
 
 * The image below shows a suitable configuration for wiring. From the flight controller, wires are going from the I2C into the GPS, from UART 1 to the 
 telemetry, from the RC to the receiver, and from M5 - M8 to a PDB.
-* The PDB's outputs are connected to the signal, power, and ground wire of each motor.
-![IMG_5527](https://user-images.githubusercontent.com/117425577/219988439-aa2120e9-12dd-4a75-89a7-9e9a51257035.jpg)
+* The PDB's outputs are connected to the signal, power, and ground wire of each motor.  
 
-
-
+![WiringFC](https://github.com/arguelle/VTOL-at-UNLV/assets/117425577/0d71d840-cfc5-445a-b788-38d28eca3169)
 
 
 * The Heewing kit comes with a BEC attached to two quick-release buses that power the Motors. This BEC has also been soldered onto to power the
